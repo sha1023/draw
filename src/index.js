@@ -267,7 +267,7 @@ const App = () => {
     elements.forEach(({ roughElement }) => roughCanvas.draw(roughElement));
   }, [elements]);
 
-  const handleMouseDown = (event) => {
+  const handlePointerDown = (event) => {
     const { clientX, clientY } = event;
     if (toolType === "select") {
       const element = getElementAtPosition(clientX, clientY, elements);
@@ -307,7 +307,7 @@ const App = () => {
       setSelected({ index: element.index });
     }
   };
-  const handleMouseMove = (event) => {
+  const handlePointerMove = (event) => {
     const { clientX, clientY } = event;
     if (toolType === "select") {
       const element = getElementAtPosition(clientX, clientY, elements);
@@ -337,7 +337,7 @@ const App = () => {
       updateElement(redrawnElement);
     }
   };
-  const handleMouseUp = (event) => {
+  const handlePointerUp = (event) => {
     setAction(null);
     setSelected(null);
   };
@@ -418,9 +418,9 @@ const App = () => {
           id={canvasId}
           width={window.innerWidth}
           height={window.innerHeight}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
           /*style={{backgroundColor:'blue'}}/**/
         >
           {" "}
